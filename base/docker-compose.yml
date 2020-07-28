@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx_proxy
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:80:80
+      - 127.0.0.1:443:443
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./certs:/etc/nginx/certs:ro
+      - ./proxy.conf:/etc/nginx/proxy.conf:ro
+    networks:
+      - devbase
+
+  whoami:
+    image: jwilder/whoami
+    restart: unless-stopped
+    environment:
+      - VIRTUAL_HOST=whoami.local
+    networks:
+      - devbase
+
+networks:
+  devbase:
+    external:
+      name: devbase

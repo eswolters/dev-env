@@ -1,0 +1,21 @@
+version: '3'
+
+services: 
+    php: 
+        image: php:7.4-apache
+        container_name: php_magento
+        environment: 
+            VIRTUAL_HOST: test.localhost
+        expose:
+            - 80
+            - 433
+        networks: 
+            - proxy
+            - default
+
+
+
+networks:
+    proxy:
+        external:
+            name: devbase
