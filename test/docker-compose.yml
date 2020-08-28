@@ -15,4 +15,4 @@ services:
 networks:
     proxy:
         external:
-            name: devbase
+            name: base_devbase
