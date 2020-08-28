@@ -15,15 +15,7 @@ services:
     networks:
       - devbase
 
-  whoami:
-    image: jwilder/whoami
-    restart: unless-stopped
-    environment:
-      - VIRTUAL_HOST=whoami.local
-    networks:
-      - devbase
-
 networks:
   devbase:
-    external:
-      name: devbase
+    driver_opts: 
+      com.docker.network.driver.mtu: 1400
