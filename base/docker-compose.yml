@@ -17,5 +17,6 @@ services:
 
 networks:
   devbase:
+    name: devbase
     driver_opts: 
       com.docker.network.driver.mtu: 1400
