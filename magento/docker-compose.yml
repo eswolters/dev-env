@@ -13,9 +13,7 @@ services:
             - proxy
             - default
 
-
-
-networks:
+networks:services
     proxy:
         external:
             name: devbase
