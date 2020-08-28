@@ -11,7 +11,6 @@ services:
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./certs:/etc/nginx/certs:ro
-      - ./proxy.conf:/etc/nginx/proxy.conf:ro
     networks:
       - devbase
 
